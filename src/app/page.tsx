@@ -15,14 +15,18 @@ import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 
 // Mock data - replace with Firebase fetching
 const mockTools: Tool[] = [
-  { id: "1", name: "GPT-4o", description: "OpenAI's newest flagship model, integrating text, audio, and image understanding and generation.", logoUrl: "https://placehold.co/64x64.png", link: "https://openai.com/index/hello-gpt-4o/", tags: ["LLM", "Multimodal", "OpenAI"], category: "Text Generation" },
-  { id: "2", name: "Midjourney V6", description: "Advanced AI image generator known for its artistic and photorealistic outputs.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.midjourney.com", tags: ["Image Generation", "Art", "Photorealism"], category: "Image Generation" },
-  { id: "3", name: "GitHub Copilot Workspace", description: "AI-powered development environment that helps plan, build, and test code.", logoUrl: "https://placehold.co/64x64.png", link: "https://github.com/features/copilot", tags: ["Code", "Developer", "IDE"], category: "Code Assistant" },
-  { id: "4", name: "ElevenLabs", description: "AI voice generator for realistic text-to-speech and voice cloning.", logoUrl: "https://placehold.co/64x64.png", link: "https://elevenlabs.io", tags: ["Voice", "TTS", "Audio"], category: "Audio & Music" },
-  { id: "5", name: "HeyGen", description: "AI video generation platform for creating talking avatar videos from text.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.heygen.com", tags: ["Video", "Avatar", "Marketing"], category: "Video Editing" },
-  { id: "6", name: "Perplexity AI", description: "Conversational AI search engine that provides direct answers with citations.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.perplexity.ai", tags: ["Search", "Research", "Answers"], category: "Research" },
-  { id: "7", name: "Claude 3 Opus", description: "Anthropic's most powerful model, excelling at complex reasoning and long-context tasks.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.anthropic.com/claude", tags: ["LLM", "Reasoning", "Anthropic"], category: "Text Generation"},
-  { id: "8", name: "Beautiful.ai", description: "AI-powered presentation software that designs slides for you automatically.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.beautiful.ai", tags: ["Presentation", "Design", "Productivity"], category: "Productivity"},
+  { id: "t1", name: "ChatGPT", description: "Versatile AI assistant for text generation and more.", logoUrl: "https://placehold.co/64x64.png", link: "https://chat.openai.com/", tags: ["Freemium", "LLM", "OpenAI"], category: "Text Generation" },
+  { id: "t2", name: "Claude", description: "AI assistant known for thoughtful, human-like conversations.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.anthropic.com/index/claude", tags: ["Freemium", "Conversational", "Anthropic"], category: "Text Generation" },
+  { id: "t3", name: "Google Gemini", description: "Excels in creative tasks and document summarization.", logoUrl: "https://placehold.co/64x64.png", link: "https://gemini.google.com/", tags: ["Freemium", "Multimodal", "Google"], category: "Text Generation" },
+  { id: "t4", name: "Jasper AI", description: "AI writing assistant tailored for marketers and content creators.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.jasper.ai/", tags: ["Paid", "Free Trial", "Copywriting"], category: "Marketing" },
+  { id: "t5", name: "Copy.ai", description: "AI-powered writing generators for marketing and more.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.copy.ai/tools", tags: ["Freemium", "Content Generation", "Marketing"], category: "Marketing" },
+  { id: "t6", name: "Writesonic", description: "AI writing for blogs, marketing & ads with SEO optimization.", logoUrl: "https://placehold.co/64x64.png", link: "https://writesonic.com/", tags: ["Freemium", "SEO", "Blogging"], category: "Marketing" },
+  { id: "t7", name: "Rytr", description: "Affordable AI writing tool for various content creation.", logoUrl: "https://placehold.co/64x64.png", link: "https://rytr.me/", tags: ["Freemium", "Affordable", "Content Creation"], category: "Text Generation" },
+  { id: "t8", name: "Frase", description: "AI-driven blog post creation & SEO research.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.frase.io/", tags: ["Paid", "Free Trial", "SEO", "Research"], category: "Research" },
+  { id: "t9", name: "Grammarly", description: "AI writing tools for effortless writing and editing.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.grammarly.com/ai/ai-writing-tools", tags: ["Freemium", "Writing Assistant", "Editing"], category: "Productivity" },
+  { id: "t10", name: "INK Editor", description: "AI writing assistant for SEO-friendly content creation.", logoUrl: "https://placehold.co/64x64.png", link: "https://inkforall.com/", tags: ["Freemium", "SEO Content", "AI Editor"], category: "Productivity" },
+  { id: "t11", name: "Wordtune", description: "AI-powered writing assistant for rewriting and improving content.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.wordtune.com/", tags: ["Freemium", "Rewriter", "Editing"], category: "Productivity" },
+  { id: "t12", name: "QuillBot", description: "AI-powered paraphrasing and summarization tool.", logoUrl: "https://placehold.co/64x64.png", link: "https://quillbot.com/", tags: ["Freemium", "Paraphraser", "Summarizer"], category: "Productivity" },
 ];
 
 export default function HomePage() {
@@ -115,7 +119,7 @@ export default function HomePage() {
 
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8">
-            {Array.from({ length: 8 }).map((_, index) => (
+            {Array.from({ length: 12 }).map((_, index) => ( // Updated to 12 skeletons
               <Card key={index} className="flex flex-col h-full rounded-xl">
                 <CardHeader className="p-4">
                   <div className="flex items-start gap-4">
@@ -161,4 +165,3 @@ export default function HomePage() {
     </>
   );
 }
-

@@ -10,22 +10,30 @@ import { ArrowLeft, ExternalLink, Tag, Info, CheckCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Mock data fetching function - replace with actual Firebase data fetching
+// Updated mock data fetching function
 async function getToolDetails(id: string): Promise<Tool | null> {
   // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 300));
+  await new Promise(resolve => setTimeout(resolve, 100));
   const mockTools: Tool[] = [
-    { id: "1", name: "GPT-4o", description: "OpenAI's newest flagship model, GPT-4o ('o' for 'omni'), can reason across audio, vision, and text in real time. It matches GPT-4 Turbo performance on text in English and code, with significant improvement on text in non-English languages, while also being much faster and 50% cheaper in the API. GPT-4o is especially better at vision and audio understanding compared to existing models.", logoUrl: "https://placehold.co/128x128.png", link: "https://openai.com/index/hello-gpt-4o/", tags: ["LLM", "Multimodal", "OpenAI", "Real-time", "Vision", "Audio"], category: "Text Generation" },
-    { id: "2", name: "Midjourney V6", description: "Midjourney V6 is an advanced AI image generator renowned for its artistic capabilities and photorealistic outputs. It offers enhanced prompt understanding, improved image coherence, and the ability to generate text within images. V6 provides users with greater control over their creations, pushing the boundaries of AI-generated art.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.midjourney.com", tags: ["Image Generation", "Art", "Photorealism", "AI Art", "Prompting"], category: "Image Generation" },
-    { id: "3", name: "GitHub Copilot Workspace", description: "GitHub Copilot Workspace is an AI-powered development environment designed to streamline the coding process from idea to execution. It assists developers in planning, building, testing, and debugging code by providing intelligent suggestions, generating boilerplate, and offering contextual insights directly within their workspace.", logoUrl: "https://placehold.co/128x128.png", link: "https://github.com/features/copilot", tags: ["Code", "Developer Tool", "IDE", "AI Pair Programmer", "Productivity"], category: "Code Assistant" },
-  ]; // Add more mock tools to cover other IDs if needed for testing
-  return mockTools.find(tool => tool.id === id) || mockTools[0]; // Fallback to first tool for demo
+    { id: "t1", name: "ChatGPT", description: "Versatile AI assistant for text generation and more. OpenAI's flagship model for advanced text, audio, and image understanding.", logoUrl: "https://placehold.co/128x128.png", link: "https://chat.openai.com/", tags: ["Freemium", "LLM", "OpenAI", "Multimodal"], category: "Text Generation" },
+    { id: "t2", name: "Claude", description: "AI assistant known for thoughtful, human-like conversations. Focuses on safety and helpfulness.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.anthropic.com/index/claude", tags: ["Freemium", "Conversational", "Anthropic", "Ethical AI"], category: "Text Generation" },
+    { id: "t3", name: "Google Gemini", description: "Excels in creative tasks and document summarization. Google's powerful multimodal AI.", logoUrl: "https://placehold.co/128x128.png", link: "https://gemini.google.com/", tags: ["Freemium", "Multimodal", "Google", "Creative"], category: "Text Generation" },
+    { id: "t4", name: "Jasper AI", description: "AI writing assistant tailored for marketers and content creators. Helps create high-quality marketing copy.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.jasper.ai/", tags: ["Paid", "Free Trial", "Copywriting", "Marketing"], category: "Marketing" },
+    { id: "t5", name: "Copy.ai", description: "AI-powered writing generators for marketing and more. Produces various forms of marketing content.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.copy.ai/tools", tags: ["Freemium", "Content Generation", "Marketing Automation"], category: "Marketing" },
+    { id: "t6", name: "Writesonic", description: "AI writing for blogs, marketing & ads with SEO optimization. Includes tools like Article Writer and Paraphraser.", logoUrl: "https://placehold.co/128x128.png", link: "https://writesonic.com/", tags: ["Freemium", "SEO", "Blogging", "Ad Copy"], category: "Marketing" },
+    { id: "t7", name: "Rytr", description: "Affordable AI writing tool for various content creation needs. Offers multiple use cases and tones.", logoUrl: "https://placehold.co/128x128.png", link: "https://rytr.me/", tags: ["Freemium", "Affordable", "Content Creation", "Versatile"], category: "Text Generation" },
+    { id: "t8", name: "Frase", description: "AI-driven blog post creation & SEO research. Helps optimize content for search engines.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.frase.io/", tags: ["Paid", "Free Trial", "SEO", "Content Optimization", "Research"], category: "Research" },
+    { id: "t9", name: "Grammarly", description: "AI writing tools for effortless writing and editing. Provides grammar, spelling, and style checks.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.grammarly.com/ai/ai-writing-tools", tags: ["Freemium", "Writing Assistant", "Editing", "Proofreading"], category: "Productivity" },
+    { id: "t10", name: "INK Editor", description: "AI writing assistant for SEO-friendly content creation. Combines AI writing with SEO optimization features.", logoUrl: "https://placehold.co/128x128.png", link: "https://inkforall.com/", tags: ["Freemium", "SEO Content", "AI Editor", "Optimization"], category: "Productivity" },
+    { id: "t11", name: "Wordtune", description: "AI-powered writing assistant for rewriting and improving content. Helps rephrase sentences and adjust tone.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.wordtune.com/", tags: ["Freemium", "Rewriter", "Editing", "Clarity"], category: "Productivity" },
+    { id: "t12", name: "QuillBot", description: "AI-powered paraphrasing and summarization tool. Useful for academic writing and content reworking.", logoUrl: "https://placehold.co/128x128.png", link: "https://quillbot.com/", tags: ["Freemium", "Paraphraser", "Summarizer", "Academic"], category: "Productivity" },
+  ];
+  return mockTools.find(tool => tool.id === id) || null;
 }
 
 export default async function ToolDetailPage({ params }: { params: { id: string } }) {
   const tool = await getToolDetails(params.id);
 
-  // Even with fallback, good to keep a check
   if (!tool) {
     return (
       <div className="flex flex-col min-h-screen">
@@ -127,9 +135,7 @@ export default async function ToolDetailPage({ params }: { params: { id: string 
   );
 }
 
-// Optional: Generate static paths if you have a fixed set of tools and want to pre-render them
-// This should be dynamic based on actual data source in a real app
 export async function generateStaticParams() {
-  const mockToolIds = ["1", "2", "3", "4", "5", "6", "7", "8"]; 
+  const mockToolIds = ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12"]; 
   return mockToolIds.map((id) => ({ id }));
 }
