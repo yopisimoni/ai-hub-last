@@ -87,6 +87,13 @@ const mockTools: Tool[] = [
   { id: "t70", name: "Microsoft 365 Copilot", description: "AI assistant integrated into Microsoft Office apps.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.microsoft.com/en-us/microsoft-365", tags: ["Paid", "Microsoft Office", "AI Assistant"], category: "Productivity" },
   { id: "t71", name: "Google Workspace AI", description: "AI features integrated into Google's productivity suite.", logoUrl: "https://placehold.co/64x64.png", link: "https://workspace.google.com/", tags: ["Paid", "Google Suite", "AI Features"], category: "Productivity" },
   { id: "t72", name: "HyperWrite", description: "AI writing assistant for productivity and content creation.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.hyperwriteai.com/", tags: ["Freemium", "Writing Assistant", "Content Creation"], category: "Productivity" },
+  { id: "t73", name: "Semantic Scholar", description: "AI-powered academic search engine.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.semanticscholar.org/", tags: ["Free", "Academic Search", "Research"], category: "Research" },
+  { id: "t74", name: "Scite", description: "Smart citations for academic research.", logoUrl: "https://placehold.co/64x64.png", link: "https://scite.ai/", tags: ["Freemium", "Citations", "Research"], category: "Research" },
+  { id: "t75", name: "Research Rabbit", description: "Tool for discovering and visualizing research papers.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.researchrabbit.ai/", tags: ["Free", "Paper Discovery", "Visualization"], category: "Research" },
+  { id: "t76", name: "Connected Papers", description: "Tool for exploring academic paper connections.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.connectedpapers.com/", tags: ["Free", "Paper Connections", "Graph View"], category: "Research" },
+  { id: "t77", name: "Litmaps", description: "Research discovery and mapping tool.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.litmaps.com/", tags: ["Freemium", "Discovery", "Mapping"], category: "Research" },
+  { id: "t78", name: "Consensus", description: "AI-powered search engine for scientific research.", logoUrl: "https://placehold.co/64x64.png", link: "https://consensus.app/", tags: ["Free", "Scientific Search", "Evidence-based"], category: "Research" },
+  { id: "t79", name: "Explainpaper", description: "Tool for simplifying complex academic papers.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.ex", tags: ["Free", "Paper Simplification", "Explanation"], category: "Research" },
 ];
 
 export default function HomePage() {

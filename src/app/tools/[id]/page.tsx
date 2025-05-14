@@ -87,6 +87,13 @@ async function getToolDetails(id: string): Promise<Tool | null> {
     { id: "t70", name: "Microsoft 365 Copilot", description: "AI assistant integrated into Microsoft Office apps. Provides AI-powered assistance in Word, Excel, PowerPoint, Outlook, and Teams.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.microsoft.com/en-us/microsoft-365", tags: ["Paid", "Microsoft Office", "AI Assistant", "Word", "Excel", "PowerPoint"], category: "Productivity" },
     { id: "t71", name: "Google Workspace AI", description: "AI features integrated into Google's productivity suite. Enhances Docs, Sheets, Slides, Meet, and Gmail with generative AI capabilities.", logoUrl: "https://placehold.co/128x128.png", link: "https://workspace.google.com/", tags: ["Paid", "Google Suite", "AI Features", "Docs", "Sheets", "Gmail"], category: "Productivity" },
     { id: "t72", name: "HyperWrite", description: "AI writing assistant for productivity and content creation. Helps generate text, rewrite content, and overcome writer's block.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.hyperwriteai.com/", tags: ["Freemium", "Writing Assistant", "Content Creation", "Text Generation"], category: "Productivity" },
+    { id: "t73", name: "Semantic Scholar", description: "AI-powered academic search engine.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.semanticscholar.org/", tags: ["Free", "Academic Search", "Research"], category: "Research" },
+    { id: "t74", name: "Scite", description: "Smart citations for academic research.", logoUrl: "https://placehold.co/128x128.png", link: "https://scite.ai/", tags: ["Freemium", "Citations", "Research"], category: "Research" },
+    { id: "t75", name: "Research Rabbit", description: "Tool for discovering and visualizing research papers.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.researchrabbit.ai/", tags: ["Free", "Paper Discovery", "Visualization"], category: "Research" },
+    { id: "t76", name: "Connected Papers", description: "Tool for exploring academic paper connections.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.connectedpapers.com/", tags: ["Free", "Paper Connections", "Graph View"], category: "Research" },
+    { id: "t77", name: "Litmaps", description: "Research discovery and mapping tool.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.litmaps.com/", tags: ["Freemium", "Discovery", "Mapping"], category: "Research" },
+    { id: "t78", name: "Consensus", description: "AI-powered search engine for scientific research.", logoUrl: "https://placehold.co/128x128.png", link: "https://consensus.app/", tags: ["Free", "Scientific Search", "Evidence-based"], category: "Research" },
+    { id: "t79", name: "Explainpaper", description: "Tool for simplifying complex academic papers.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.ex", tags: ["Free", "Paper Simplification", "Explanation"], category: "Research" },
   ];
   return mockTools.find(tool => tool.id === id) || null;
 }
@@ -202,7 +209,8 @@ export async function generateStaticParams() {
     "t25", "t26", "t27", "t28", "t29", "t30", "t31", "t32", "t33", "t34", "t35", "t36",
     "t37", "t38", "t39", "t40", "t41", "t42", "t43", "t44", "t45", "t46", "t47", "t48",
     "t49", "t50", "t51", "t52", "t53", "t54", "t55", "t56", "t57", "t58", "t59", "t60",
-    "t61", "t62", "t63", "t64", "t65", "t66", "t67", "t68", "t69", "t70", "t71", "t72"
+    "t61", "t62", "t63", "t64", "t65", "t66", "t67", "t68", "t69", "t70", "t71", "t72",
+    "t73", "t74", "t75", "t76", "t77", "t78", "t79"
   ]; 
   return mockToolIds.map((id) => ({ id }));
 }
