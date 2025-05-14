@@ -93,7 +93,7 @@ async function getToolDetails(id: string): Promise<Tool | null> {
     { id: "t76", name: "Connected Papers", description: "Tool for exploring academic paper connections.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.connectedpapers.com/", tags: ["Free", "Paper Connections", "Graph View"], category: "Research" },
     { id: "t77", name: "Litmaps", description: "Research discovery and mapping tool.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.litmaps.com/", tags: ["Freemium", "Discovery", "Mapping"], category: "Research" },
     { id: "t78", name: "Consensus", description: "AI-powered search engine for scientific research.", logoUrl: "https://placehold.co/128x128.png", link: "https://consensus.app/", tags: ["Free", "Scientific Search", "Evidence-based"], category: "Research" },
-    { id: "t79", name: "Explainpaper", description: "Tool for simplifying complex academic papers.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.ex", tags: ["Free", "Paper Simplification", "Explanation"], category: "Research" },
+    { id: "t79", name: "Explainpaper", description: "Tool for simplifying complex academic papers.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.explainpaper.com/", tags: ["Free", "Paper Simplification", "Explanation"], category: "Research" },
   ];
   return mockTools.find(tool => tool.id === id) || null;
 }
