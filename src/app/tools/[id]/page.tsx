@@ -39,6 +39,18 @@ async function getToolDetails(id: string): Promise<Tool | null> {
     { id: "t22", name: "NightCafe", description: "AI art generator offering various styles and creation methods. Provides multiple algorithms and community features.", logoUrl: "https://placehold.co/128x128.png", link: "https://creator.nightcafe.studio/", tags: ["Freemium", "Multiple Styles", "Community", "Print on Demand"], category: "Image Generation" },
     { id: "t23", name: "Deep Dream Generator", description: "AI tool for generating surreal and abstract images. Known for its distinctive 'deep dream' visual style.", logoUrl: "https://placehold.co/128x128.png", link: "https://deepdreamgenerator.com/", tags: ["Freemium", "Surreal", "Abstract", "Artistic Filters"], category: "Image Generation" },
     { id: "t24", name: "StarryAI", description: "AI art generator that turns text prompts into artworks. Offers different AI models for various artistic outputs.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.starryai.com/", tags: ["Freemium", "Artistic", "Text to Art", "NFTs"], category: "Image Generation" },
+    { id: "t25", name: "GitHub Copilot", description: "AI-powered code completion tool for developers. Integrates with popular IDEs.", logoUrl: "https://placehold.co/128x128.png", link: "https://github.com/features/copilot", tags: ["Paid", "Code Completion", "IDE Integration", "GitHub"], category: "Code Assistant" },
+    { id: "t26", name: "Tabnine", description: "AI code assistant for faster coding. Supports multiple languages and IDEs.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.tabnine.com/", tags: ["Freemium", "Code Completion", "Developer Tool", "Productivity"], category: "Code Assistant" },
+    { id: "t27", name: "Codeium", description: "AI-powered code generation and completion tool. Offers free access for individual developers.", logoUrl: "https://placehold.co/128x128.png", link: "https://codeium.com/", tags: ["Free", "Code Generation", "Autocomplete", "IDE Extension"], category: "Code Assistant" },
+    { id: "t28", name: "Amazon CodeWhisperer", description: "AI coding companion for AWS developers. Optimized for AWS services.", logoUrl: "https://placehold.co/128x128.png", link: "https://aws.amazon.com/codewhisperer/", tags: ["Freemium", "AWS", "Developer Tool", "Cloud"], category: "Code Assistant" },
+    { id: "t29", name: "AskCodi", description: "AI assistant for generating code snippets and documentation. Helps with various coding tasks.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.askcodi.com/", tags: ["Freemium", "Code Snippets", "Documentation", "Developer Assistant"], category: "Code Assistant" },
+    { id: "t30", name: "Codiga", description: "Static code analysis and automated code reviews. Focuses on code quality and security.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.codiga.io/", tags: ["Freemium", "Code Analysis", "Code Review", "Static Analysis"], category: "Code Assistant" },
+    { id: "t31", name: "Replit", description: "Online IDE with AI-powered code assistance. Collaborative coding environment.", logoUrl: "https://placehold.co/128x128.png", link: "https://replit.com/", tags: ["Freemium", "Online IDE", "AI Coding", "Collaboration"], category: "Code Assistant" },
+    { id: "t32", name: "CodeT5", description: "Open-source AI model for code understanding and generation. From Salesforce Research.", logoUrl: "https://placehold.co/128x128.png", link: "https://github.com/salesforce/CodeT5", tags: ["Free", "Open Source", "Code Model", "Research"], category: "Code Assistant" },
+    { id: "t33", name: "OpenAI Codex", description: "AI system that translates natural language to code. Powers GitHub Copilot.", logoUrl: "https://placehold.co/128x128.png", link: "https://openai.com/blog/openai-codex", tags: ["Freemium", "OpenAI", "Natural Language Coding", "API"], category: "Code Assistant" },
+    { id: "t34", name: "Sourcegraph Cody", description: "AI-powered code search and navigation tool. Helps understand large codebases.", logoUrl: "https://placehold.co/128x128.png", link: "https://sourcegraph.com/cody", tags: ["Freemium", "Code Search", "Code Navigation", "Enterprise"], category: "Code Assistant" },
+    { id: "t35", name: "DeepCode AI", description: "AI-powered code review tool for detecting bugs and vulnerabilities. Acquired by Snyk.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.deepcode.ai/", tags: ["Freemium", "Security", "Bug Detection", "Code Quality"], category: "Code Assistant" },
+    { id: "t36", name: "Figstack", description: "AI tool for understanding and documenting code. Translates code between languages.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.figstack.com/", tags: ["Freemium", "Code Documentation", "Code Understanding", "Language Translation"], category: "Code Assistant" },
   ];
   return mockTools.find(tool => tool.id === id) || null;
 }
@@ -150,7 +162,8 @@ export default async function ToolDetailPage({ params }: { params: { id: string 
 export async function generateStaticParams() {
   const mockToolIds = [
     "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12",
-    "t13", "t14", "t15", "t16", "t17", "t18", "t19", "t20", "t21", "t22", "t23", "t24"
+    "t13", "t14", "t15", "t16", "t17", "t18", "t19", "t20", "t21", "t22", "t23", "t24",
+    "t25", "t26", "t27", "t28", "t29", "t30", "t31", "t32", "t33", "t34", "t35", "t36"
   ]; 
   return mockToolIds.map((id) => ({ id }));
 }
