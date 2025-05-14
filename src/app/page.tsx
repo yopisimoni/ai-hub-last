@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Search as SearchIcon, ThumbsUp, Zap, BarChart3 } from "lucide-react"; // Renamed Search to SearchIcon
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"; 
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"; 
 
 // Mock data - replace with Firebase fetching
 const mockTools: Tool[] = [
@@ -31,7 +31,7 @@ const mockTools: Tool[] = [
   { id: "t14", name: "DALL·E 3", description: "OpenAI's text-to-image model for detailed images.", logoUrl: "https://placehold.co/64x64.png", link: "https://openai.com/dall-e", tags: ["Freemium", "OpenAI", "Detailed"], category: "Image Generation" },
   { id: "t15", name: "Stable Diffusion", description: "Open-source text-to-image model offering customization.", logoUrl: "https://placehold.co/64x64.png", link: "https://stability.ai/", tags: ["Free", "Open Source", "Customizable"], category: "Image Generation" },
   { id: "t16", name: "Adobe Firefly", description: "Adobe's AI image generator integrated into Creative Cloud.", logoUrl: "https://placehold.co/64x64.png", link: "https://firefly.adobe.com/", tags: ["Free Trial", "Paid", "Adobe", "Integrated"], category: "Image Generation" },
-  { id: "t17", name: "Runway Gen-4", description: "Advanced AI model for video and image generation.", logoUrl: "https://placehold.co/64x64.png", link: "https://runwayml.com/", tags: ["Free Trial", "Paid", "Video", "Multimodal"], category: "Image Generation" }, // Shared ID, used for Image and Video
+  { id: "t17", name: "Runway Gen-4", description: "Advanced AI model for video and image generation.", logoUrl: "https://placehold.co/64x64.png", link: "https://runwayml.com/", tags: ["Free Trial", "Paid", "Video", "Multimodal"], category: "Image Generation" },
   { id: "t18", name: "Ideogram", description: "Text-to-image model capable of generating legible text within images.", logoUrl: "https://placehold.co/64x64.png", link: "https://ideogram.ai/", tags: ["Freemium", "Text in Image", "Typography"], category: "Image Generation" },
   { id: "t19", name: "DeepSeek Janus Pro", description: "AI image generation model offering detailed images.", logoUrl: "https://placehold.co/64x64.png", link: "https://deepseek.com/", tags: ["Free", "Detailed", "High Resolution"], category: "Image Generation" },
   { id: "t20", name: "Dream by Wombo", description: "AI-powered app for creating artworks from text prompts.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.wombo.art/", tags: ["Freemium", "Mobile App", "Artistic"], category: "Image Generation" },
@@ -75,6 +75,18 @@ const mockTools: Tool[] = [
   { id: "t58", name: "Kapwing", description: "Online video editor with AI tools for content creation.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.kapwing.com/", tags: ["Freemium", "Online Editor", "Memes"], category: "Video Editing" },
   { id: "t59", name: "InVideo", description: "AI-powered video editor for creating promotional videos.", logoUrl: "https://placehold.co/64x64.png", link: "https://invideo.io/", tags: ["Freemium", "Promotional", "Templates"], category: "Video Editing" },
   { id: "t60", name: "Clipchamp", description: "Microsoft's video editor with AI features.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.clipchamp.com/", tags: ["Freemium", "Microsoft", "Windows"], category: "Video Editing" },
+  { id: "t61", name: "Notion AI", description: "AI-powered workspace for notes, docs, and tasks.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.notion.so/product/ai", tags: ["Freemium", "Workspace", "Notes", "Tasks"], category: "Productivity" },
+  { id: "t62", name: "Grammarly (General)", description: "AI writing assistant for clear and effective communication.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.grammarly.com/", tags: ["Freemium", "Writing Aid", "Communication"], category: "Productivity" },
+  { id: "t63", name: "Otter.ai", description: "AI-powered transcription and meeting notes tool.", logoUrl: "https://placehold.co/64x64.png", link: "https://otter.ai/", tags: ["Freemium", "Transcription", "Meeting Notes"], category: "Productivity" },
+  { id: "t64", name: "Todoist", description: "Task management app with AI-powered features.", logoUrl: "https://placehold.co/64x64.png", link: "https://todoist.com/", tags: ["Freemium", "Task Management", "AI Features"], category: "Productivity" },
+  { id: "t65", name: "Motion", description: "AI-powered calendar and task manager.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.usemotion.com/", tags: ["Free Trial", "Paid", "Calendar", "Task Manager"], category: "Productivity" },
+  { id: "t66", name: "ClickUp", description: "Productivity platform with AI features for task management.", logoUrl: "https://placehold.co/64x64.png", link: "https://clickup.com/", tags: ["Freemium", "Project Management", "AI Features"], category: "Productivity" },
+  { id: "t67", name: "Evernote", description: "Note-taking app with AI-powered organization.", logoUrl: "https://placehold.co/64x64.png", link: "https://evernote.com/", tags: ["Freemium", "Note Taking", "Organization"], category: "Productivity" },
+  { id: "t68", name: "Zapier", description: "Automation tool with AI integrations for workflows.", logoUrl: "https://placehold.co/64x64.png", link: "https://zapier.com/", tags: ["Freemium", "Automation", "Workflow", "Integration"], category: "Productivity" },
+  { id: "t69", name: "Slack", description: "Collaboration platform with AI-powered features.", logoUrl: "https://placehold.co/64x64.png", link: "https://slack.com/", tags: ["Freemium", "Collaboration", "Communication", "AI Features"], category: "Productivity" },
+  { id: "t70", name: "Microsoft 365 Copilot", description: "AI assistant integrated into Microsoft Office apps.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.microsoft.com/en-us/microsoft-365", tags: ["Paid", "Microsoft Office", "AI Assistant"], category: "Productivity" },
+  { id: "t71", name: "Google Workspace AI", description: "AI features integrated into Google's productivity suite.", logoUrl: "https://placehold.co/64x64.png", link: "https://workspace.google.com/", tags: ["Paid", "Google Suite", "AI Features"], category: "Productivity" },
+  { id: "t72", name: "HyperWrite", description: "AI writing assistant for productivity and content creation.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.hyperwriteai.com/", tags: ["Freemium", "Writing Assistant", "Content Creation"], category: "Productivity" },
 ];
 
 export default function HomePage() {
