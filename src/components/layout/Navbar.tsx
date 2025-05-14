@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, UserCircle } from "lucide-react";
+import { Search, UserCircle, Rss } from "lucide-react"; // Added Rss for Blog icon
 import { useState, useEffect } from 'react';
 
 
@@ -58,6 +58,11 @@ export default function Navbar() {
         </div>
 
         <nav className="flex items-center gap-2 sm:gap-4">
+          <Link href="/blog">
+            <Button variant="ghost" size="sm" className="text-sm">
+              <Rss className="mr-1.5 h-4 w-4" /> Blog
+            </Button>
+          </Link>
           {isMounted && ( // Prevents hydration mismatch for auth-dependent UI
             isAdmin ? (
               <Link href="/admin">
