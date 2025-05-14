@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Search as SearchIcon, ThumbsUp, Zap, BarChart3 } from "lucide-react"; // Renamed Search to SearchIcon
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"; // Added Card imports
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"; 
 
 // Mock data - replace with Firebase fetching
 const mockTools: Tool[] = [
@@ -51,6 +51,18 @@ const mockTools: Tool[] = [
   { id: "t34", name: "Sourcegraph Cody", description: "AI-powered code search and navigation tool.", logoUrl: "https://placehold.co/64x64.png", link: "https://sourcegraph.com/cody", tags: ["Freemium", "Code Search", "Code Navigation"], category: "Code Assistant" },
   { id: "t35", name: "DeepCode AI", description: "AI-powered code review tool for detecting bugs and vulnerabilities.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.deepcode.ai/", tags: ["Freemium", "Security", "Bug Detection"], category: "Code Assistant" },
   { id: "t36", name: "Figstack", description: "AI tool for understanding and documenting code.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.figstack.com/", tags: ["Freemium", "Code Documentation", "Code Understanding"], category: "Code Assistant" },
+  { id: "t37", name: "Suno AI", description: "AI music generator with intuitive interface.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.suno.ai/", tags: ["Freemium", "Music Generation", "Intuitive"], category: "Audio & Music" },
+  { id: "t38", name: "Beatoven AI", description: "AI-powered tool for creating royalty-free music.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.beatoven.ai/", tags: ["Freemium", "Royalty-Free", "Background Music"], category: "Audio & Music" },
+  { id: "t39", name: "Soundraw", description: "AI music generator for creating original tracks.", logoUrl: "https://placehold.co/64x64.png", link: "https://soundraw.io/", tags: ["Free Trial", "Paid", "Original Music"], category: "Audio & Music" },
+  { id: "t40", name: "AIVA", description: "AI composer for creating music for various purposes.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.aiva.ai/", tags: ["Freemium", "AI Composer", "Soundtracks"], category: "Audio & Music" },
+  { id: "t41", name: "Amper Music", description: "AI music composition tool for content creators.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.ampermusic.com/", tags: ["Free Trial", "Paid", "Content Creators"], category: "Audio & Music" },
+  { id: "t42", name: "Jukebox", description: "OpenAI's neural network for generating music.", logoUrl: "https://placehold.co/64x64.png", link: "https://openai.com/blog/jukebox", tags: ["Free", "OpenAI", "Music Generation"], category: "Audio & Music" },
+  { id: "t43", name: "Boomy", description: "AI-powered music creation platform for generating songs.", logoUrl: "https://placehold.co/64x64.png", link: "https://boomy.com/", tags: ["Freemium", "Song Generation", "Platform"], category: "Audio & Music" },
+  { id: "t44", name: "Loudly", description: "AI music generator for creating tracks in various genres.", logoUrl: "https://placehold.co/64x64.png", link: "https://loudly.com/", tags: ["Freemium", "Genre Variety", "Tracks"], category: "Audio & Music" },
+  { id: "t45", name: "Melobytes", description: "AI tool for generating music and visuals from text.", logoUrl: "https://placehold.co/64x64.png", link: "https://melobytes.com/", tags: ["Free", "Text to Music", "Visuals"], category: "Audio & Music" },
+  { id: "t46", name: "Ecrett Music", description: "AI music generator for creating background music.", logoUrl: "https://placehold.co/64x64.png", link: "https://ecrettmusic.com/", tags: ["Free Trial", "Paid", "Background Music"], category: "Audio & Music" },
+  { id: "t47", name: "Humtap", description: "AI-powered music creation app for mobile devices.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.humtap.com/", tags: ["Freemium", "Mobile App", "Music Creation"], category: "Audio & Music" },
+  { id: "t48", name: "Amadeus Code", description: "AI songwriting assistant for creating melodies.", logoUrl: "https://placehold.co/64x64.png", link: "https://amadeuscode.com/", tags: ["Freemium", "Songwriting", "Melody Assistant"], category: "Audio & Music" },
 ];
 
 export default function HomePage() {
