@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Search as SearchIcon, ThumbsUp, Zap, BarChart3 } from "lucide-react"; // Renamed Search to SearchIcon
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"; // Added Card imports
 
 // Mock data - replace with Firebase fetching
 const mockTools: Tool[] = [
@@ -27,6 +27,18 @@ const mockTools: Tool[] = [
   { id: "t10", name: "INK Editor", description: "AI writing assistant for SEO-friendly content creation.", logoUrl: "https://placehold.co/64x64.png", link: "https://inkforall.com/", tags: ["Freemium", "SEO Content", "AI Editor"], category: "Productivity" },
   { id: "t11", name: "Wordtune", description: "AI-powered writing assistant for rewriting and improving content.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.wordtune.com/", tags: ["Freemium", "Rewriter", "Editing"], category: "Productivity" },
   { id: "t12", name: "QuillBot", description: "AI-powered paraphrasing and summarization tool.", logoUrl: "https://placehold.co/64x64.png", link: "https://quillbot.com/", tags: ["Freemium", "Paraphraser", "Summarizer"], category: "Productivity" },
+  { id: "t13", name: "Midjourney", description: "AI-powered image generator known for artistic outputs.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.midjourney.com/", tags: ["Paid", "Artistic", "High Quality"], category: "Image Generation" },
+  { id: "t14", name: "DALL·E 3", description: "OpenAI's text-to-image model for detailed images.", logoUrl: "https://placehold.co/64x64.png", link: "https://openai.com/dall-e", tags: ["Freemium", "OpenAI", "Detailed"], category: "Image Generation" },
+  { id: "t15", name: "Stable Diffusion", description: "Open-source text-to-image model offering customization.", logoUrl: "https://placehold.co/64x64.png", link: "https://stability.ai/", tags: ["Free", "Open Source", "Customizable"], category: "Image Generation" },
+  { id: "t16", name: "Adobe Firefly", description: "Adobe's AI image generator integrated into Creative Cloud.", logoUrl: "https://placehold.co/64x64.png", link: "https://firefly.adobe.com/", tags: ["Free Trial", "Paid", "Adobe", "Integrated"], category: "Image Generation" },
+  { id: "t17", name: "Runway Gen-4", description: "Advanced AI model for video and image generation.", logoUrl: "https://placehold.co/64x64.png", link: "https://runwayml.com/", tags: ["Free Trial", "Paid", "Video", "Multimodal"], category: "Image Generation" }, // Also Video Editing
+  { id: "t18", name: "Ideogram", description: "Text-to-image model capable of generating legible text within images.", logoUrl: "https://placehold.co/64x64.png", link: "https://ideogram.ai/", tags: ["Freemium", "Text in Image", "Typography"], category: "Image Generation" },
+  { id: "t19", name: "DeepSeek Janus Pro", description: "AI image generation model offering detailed images.", logoUrl: "https://placehold.co/64x64.png", link: "https://deepseek.com/", tags: ["Free", "Detailed", "High Resolution"], category: "Image Generation" },
+  { id: "t20", name: "Dream by Wombo", description: "AI-powered app for creating artworks from text prompts.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.wombo.art/", tags: ["Freemium", "Mobile App", "Artistic"], category: "Image Generation" },
+  { id: "t21", name: "Artbreeder", description: "Collaborative AI art platform for creating and modifying images.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.artbreeder.com/", tags: ["Freemium", "Collaborative", "Image Editing"], category: "Image Generation" },
+  { id: "t22", name: "NightCafe", description: "AI art generator offering various styles and creation methods.", logoUrl: "https://placehold.co/64x64.png", link: "https://creator.nightcafe.studio/", tags: ["Freemium", "Multiple Styles", "Community"], category: "Image Generation" },
+  { id: "t23", name: "Deep Dream Generator", description: "AI tool for generating surreal and abstract images.", logoUrl: "https://placehold.co/64x64.png", link: "https://deepdreamgenerator.com/", tags: ["Freemium", "Surreal", "Abstract"], category: "Image Generation" },
+  { id: "t24", name: "StarryAI", description: "AI art generator that turns text prompts into artworks.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.starryai.com/", tags: ["Freemium", "Artistic", "Text to Art"], category: "Image Generation" },
 ];
 
 export default function HomePage() {
@@ -119,7 +131,7 @@ export default function HomePage() {
 
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8">
-            {Array.from({ length: 12 }).map((_, index) => ( // Updated to 12 skeletons
+            {Array.from({ length: 12 }).map((_, index) => ( 
               <Card key={index} className="flex flex-col h-full rounded-xl">
                 <CardHeader className="p-4">
                   <div className="flex items-start gap-4">
@@ -165,3 +177,4 @@ export default function HomePage() {
     </>
   );
 }
+

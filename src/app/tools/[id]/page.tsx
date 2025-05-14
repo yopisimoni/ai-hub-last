@@ -27,6 +27,18 @@ async function getToolDetails(id: string): Promise<Tool | null> {
     { id: "t10", name: "INK Editor", description: "AI writing assistant for SEO-friendly content creation. Combines AI writing with SEO optimization features.", logoUrl: "https://placehold.co/128x128.png", link: "https://inkforall.com/", tags: ["Freemium", "SEO Content", "AI Editor", "Optimization"], category: "Productivity" },
     { id: "t11", name: "Wordtune", description: "AI-powered writing assistant for rewriting and improving content. Helps rephrase sentences and adjust tone.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.wordtune.com/", tags: ["Freemium", "Rewriter", "Editing", "Clarity"], category: "Productivity" },
     { id: "t12", name: "QuillBot", description: "AI-powered paraphrasing and summarization tool. Useful for academic writing and content reworking.", logoUrl: "https://placehold.co/128x128.png", link: "https://quillbot.com/", tags: ["Freemium", "Paraphraser", "Summarizer", "Academic"], category: "Productivity" },
+    { id: "t13", name: "Midjourney", description: "AI-powered image generator known for artistic outputs. Produces highly detailed and imaginative visuals.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.midjourney.com/", tags: ["Paid", "Artistic", "High Quality", "Discord"], category: "Image Generation" },
+    { id: "t14", name: "DALL·E 3", description: "OpenAI's text-to-image model for detailed images. Known for strong prompt adherence and integration with ChatGPT.", logoUrl: "https://placehold.co/128x128.png", link: "https://openai.com/dall-e", tags: ["Freemium", "OpenAI", "Detailed", "Prompt Adherence"], category: "Image Generation" },
+    { id: "t15", name: "Stable Diffusion", description: "Open-source text-to-image model offering customization. Widely used and adaptable for various artistic styles.", logoUrl: "https://placehold.co/128x128.png", link: "https://stability.ai/", tags: ["Free", "Open Source", "Customizable", "Community"], category: "Image Generation" },
+    { id: "t16", name: "Adobe Firefly", description: "Adobe's AI image generator integrated into Creative Cloud. Designed for commercial safety and ethical sourcing.", logoUrl: "https://placehold.co/128x128.png", link: "https://firefly.adobe.com/", tags: ["Free Trial", "Paid", "Adobe", "Integrated", "Commercial Safe"], category: "Image Generation" },
+    { id: "t17", name: "Runway Gen-4", description: "Advanced AI model for video and image generation. Offers tools for text-to-video and image-to-video.", logoUrl: "https://placehold.co/128x128.png", link: "https://runwayml.com/", tags: ["Free Trial", "Paid", "Video", "Multimodal", "Creative Suite"], category: "Image Generation" },
+    { id: "t18", name: "Ideogram", description: "Text-to-image model capable of generating legible text within images. Focuses on typography in generated visuals.", logoUrl: "https://placehold.co/128x128.png", link: "https://ideogram.ai/", tags: ["Freemium", "Text in Image", "Typography", "Beta"], category: "Image Generation" },
+    { id: "t19", name: "DeepSeek Janus Pro", description: "AI image generation model offering detailed images. Aims for high-resolution and intricate visual outputs.", logoUrl: "https://placehold.co/128x128.png", link: "https://deepseek.com/", tags: ["Free", "Detailed", "High Resolution", "Research"], category: "Image Generation" },
+    { id: "t20", name: "Dream by Wombo", description: "AI-powered app for creating artworks from text prompts. User-friendly mobile application for artistic creations.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.wombo.art/", tags: ["Freemium", "Mobile App", "Artistic", "User-Friendly"], category: "Image Generation" },
+    { id: "t21", name: "Artbreeder", description: "Collaborative AI art platform for creating and modifying images. Allows users to 'breed' images together.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.artbreeder.com/", tags: ["Freemium", "Collaborative", "Image Editing", "Genealogical Art"], category: "Image Generation" },
+    { id: "t22", name: "NightCafe", description: "AI art generator offering various styles and creation methods. Provides multiple algorithms and community features.", logoUrl: "https://placehold.co/128x128.png", link: "https://creator.nightcafe.studio/", tags: ["Freemium", "Multiple Styles", "Community", "Print on Demand"], category: "Image Generation" },
+    { id: "t23", name: "Deep Dream Generator", description: "AI tool for generating surreal and abstract images. Known for its distinctive 'deep dream' visual style.", logoUrl: "https://placehold.co/128x128.png", link: "https://deepdreamgenerator.com/", tags: ["Freemium", "Surreal", "Abstract", "Artistic Filters"], category: "Image Generation" },
+    { id: "t24", name: "StarryAI", description: "AI art generator that turns text prompts into artworks. Offers different AI models for various artistic outputs.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.starryai.com/", tags: ["Freemium", "Artistic", "Text to Art", "NFTs"], category: "Image Generation" },
   ];
   return mockTools.find(tool => tool.id === id) || null;
 }
@@ -136,6 +148,10 @@ export default async function ToolDetailPage({ params }: { params: { id: string 
 }
 
 export async function generateStaticParams() {
-  const mockToolIds = ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12"]; 
+  const mockToolIds = [
+    "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12",
+    "t13", "t14", "t15", "t16", "t17", "t18", "t19", "t20", "t21", "t22", "t23", "t24"
+  ]; 
   return mockToolIds.map((id) => ({ id }));
 }
+
