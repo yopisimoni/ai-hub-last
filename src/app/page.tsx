@@ -31,7 +31,7 @@ const mockTools: Tool[] = [
   { id: "t14", name: "DALL·E 3", description: "OpenAI's text-to-image model for detailed images.", logoUrl: "https://placehold.co/64x64.png", link: "https://openai.com/dall-e", tags: ["Freemium", "OpenAI", "Detailed"], category: "Image Generation" },
   { id: "t15", name: "Stable Diffusion", description: "Open-source text-to-image model offering customization.", logoUrl: "https://placehold.co/64x64.png", link: "https://stability.ai/", tags: ["Free", "Open Source", "Customizable"], category: "Image Generation" },
   { id: "t16", name: "Adobe Firefly", description: "Adobe's AI image generator integrated into Creative Cloud.", logoUrl: "https://placehold.co/64x64.png", link: "https://firefly.adobe.com/", tags: ["Free Trial", "Paid", "Adobe", "Integrated"], category: "Image Generation" },
-  { id: "t17", name: "Runway Gen-4", description: "Advanced AI model for video and image generation.", logoUrl: "https://placehold.co/64x64.png", link: "https://runwayml.com/", tags: ["Free Trial", "Paid", "Video", "Multimodal"], category: "Image Generation" },
+  { id: "t17", name: "Runway Gen-4", description: "Advanced AI model for video and image generation.", logoUrl: "https://placehold.co/64x64.png", link: "https://runwayml.com/", tags: ["Free Trial", "Paid", "Video", "Multimodal"], category: "Image Generation" }, // Shared ID, used for Image and Video
   { id: "t18", name: "Ideogram", description: "Text-to-image model capable of generating legible text within images.", logoUrl: "https://placehold.co/64x64.png", link: "https://ideogram.ai/", tags: ["Freemium", "Text in Image", "Typography"], category: "Image Generation" },
   { id: "t19", name: "DeepSeek Janus Pro", description: "AI image generation model offering detailed images.", logoUrl: "https://placehold.co/64x64.png", link: "https://deepseek.com/", tags: ["Free", "Detailed", "High Resolution"], category: "Image Generation" },
   { id: "t20", name: "Dream by Wombo", description: "AI-powered app for creating artworks from text prompts.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.wombo.art/", tags: ["Freemium", "Mobile App", "Artistic"], category: "Image Generation" },
@@ -63,6 +63,18 @@ const mockTools: Tool[] = [
   { id: "t46", name: "Ecrett Music", description: "AI music generator for creating background music.", logoUrl: "https://placehold.co/64x64.png", link: "https://ecrettmusic.com/", tags: ["Free Trial", "Paid", "Background Music"], category: "Audio & Music" },
   { id: "t47", name: "Humtap", description: "AI-powered music creation app for mobile devices.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.humtap.com/", tags: ["Freemium", "Mobile App", "Music Creation"], category: "Audio & Music" },
   { id: "t48", name: "Amadeus Code", description: "AI songwriting assistant for creating melodies.", logoUrl: "https://placehold.co/64x64.png", link: "https://amadeuscode.com/", tags: ["Freemium", "Songwriting", "Melody Assistant"], category: "Audio & Music" },
+  { id: "t49", name: "Runway", description: "AI-powered video editing and generation platform.", logoUrl: "https://placehold.co/64x64.png", link: "https://runwayml.com/", tags: ["Free Trial", "Paid", "Video Generation", "Platform"], category: "Video Editing" },
+  { id: "t50", name: "Descript", description: "All-in-one video and podcast editing tool with AI features.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.descript.com/", tags: ["Freemium", "Podcast Editing", "Transcription"], category: "Video Editing" },
+  { id: "t51", name: "Synthesia", description: "AI video generation platform for creating professional videos.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.synthesia.io/", tags: ["Free Trial", "Paid", "AI Avatars", "Professional"], category: "Video Editing" },
+  { id: "t52", name: "Pictory", description: "AI tool for creating short videos from long content.", logoUrl: "https://placehold.co/64x64.png", link: "https://pictory.ai/", tags: ["Free Trial", "Paid", "Content Repurposing", "Short Form"], category: "Video Editing" },
+  { id: "t53", name: "Wisecut", description: "AI-powered video editor that automates editing tasks.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.wisecut.video/", tags: ["Freemium", "Automated Editing", "Auto Cut"], category: "Video Editing" },
+  { id: "t54", name: "Magisto", description: "AI video editor for creating marketing videos.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.magisto.com/", tags: ["Freemium", "Marketing", "Social Media"], category: "Video Editing" },
+  { id: "t55", name: "Veed.io", description: "Online video editing platform with AI features.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.veed.io/", tags: ["Freemium", "Online Editor", "Subtitles"], category: "Video Editing" },
+  { id: "t56", name: "Lumen5", description: "AI-powered video creation platform for social media content.", logoUrl: "https://placehold.co/64x64.png", link: "https://lumen5.com/", tags: ["Freemium", "Social Media", "Blog to Video"], category: "Video Editing" },
+  { id: "t57", name: "Animoto", description: "Video creation tool with AI-driven templates.", logoUrl: "https://placehold.co/64x64.png", link: "https://animoto.com/", tags: ["Freemium", "Templates", "Slideshows"], category: "Video Editing" },
+  { id: "t58", name: "Kapwing", description: "Online video editor with AI tools for content creation.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.kapwing.com/", tags: ["Freemium", "Online Editor", "Memes"], category: "Video Editing" },
+  { id: "t59", name: "InVideo", description: "AI-powered video editor for creating promotional videos.", logoUrl: "https://placehold.co/64x64.png", link: "https://invideo.io/", tags: ["Freemium", "Promotional", "Templates"], category: "Video Editing" },
+  { id: "t60", name: "Clipchamp", description: "Microsoft's video editor with AI features.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.clipchamp.com/", tags: ["Freemium", "Microsoft", "Windows"], category: "Video Editing" },
 ];
 
 export default function HomePage() {
@@ -201,4 +213,3 @@ export default function HomePage() {
     </>
   );
 }
-

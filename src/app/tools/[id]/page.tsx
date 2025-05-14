@@ -63,6 +63,18 @@ async function getToolDetails(id: string): Promise<Tool | null> {
     { id: "t46", name: "Ecrett Music", description: "AI music generator for creating background music. Simple interface for video creators.", logoUrl: "https://placehold.co/128x128.png", link: "https://ecrettmusic.com/", tags: ["Free Trial", "Paid", "Background Music", "Video Editing"], category: "Audio & Music" },
     { id: "t47", name: "Humtap", description: "AI-powered music creation app for mobile devices. Create music by humming or tapping.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.humtap.com/", tags: ["Freemium", "Mobile App", "Music Creation", "Intuitive"], category: "Audio & Music" },
     { id: "t48", name: "Amadeus Code", description: "AI songwriting assistant for creating melodies. Helps overcome writer's block.", logoUrl: "https://placehold.co/128x128.png", link: "https://amadeuscode.com/", tags: ["Freemium", "Songwriting", "Melody Assistant", "iOS App"], category: "Audio & Music" },
+    { id: "t49", name: "Runway", description: "AI-powered video editing and generation platform. Includes features like text-to-video, image-to-video, and advanced editing tools.", logoUrl: "https://placehold.co/128x128.png", link: "https://runwayml.com/", tags: ["Free Trial", "Paid", "Video Generation", "Platform", "AI Magic Tools"], category: "Video Editing" },
+    { id: "t50", name: "Descript", description: "All-in-one video and podcast editing tool with AI features. Offers transcription, overdub, and screen recording.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.descript.com/", tags: ["Freemium", "Podcast Editing", "Transcription", "Overdub", "Screen Recording"], category: "Video Editing" },
+    { id: "t51", name: "Synthesia", description: "AI video generation platform for creating professional videos. Uses AI avatars and text-to-speech.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.synthesia.io/", tags: ["Free Trial", "Paid", "AI Avatars", "Professional", "Text-to-Video"], category: "Video Editing" },
+    { id: "t52", name: "Pictory", description: "AI tool for creating short videos from long content. Automatically extracts key highlights.", logoUrl: "https://placehold.co/128x128.png", link: "https://pictory.ai/", tags: ["Free Trial", "Paid", "Content Repurposing", "Short Form", "Article-to-Video"], category: "Video Editing" },
+    { id: "t53", name: "Wisecut", description: "AI-powered video editor that automates editing tasks. Features auto-cut, smart background music, and subtitles.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.wisecut.video/", tags: ["Freemium", "Automated Editing", "Auto Cut", "Subtitles", "Smart Background Music"], category: "Video Editing" },
+    { id: "t54", name: "Magisto", description: "AI video editor for creating marketing videos. Uses AI to analyze footage and create emotionally resonant stories.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.magisto.com/", tags: ["Freemium", "Marketing", "Social Media", "Automated Storytelling"], category: "Video Editing" },
+    { id: "t55", name: "Veed.io", description: "Online video editing platform with AI features. Includes tools for subtitles, transcription, and screen recording.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.veed.io/", tags: ["Freemium", "Online Editor", "Subtitles", "Transcription", "Collaboration"], category: "Video Editing" },
+    { id: "t56", name: "Lumen5", description: "AI-powered video creation platform for social media content. Transforms blog posts and articles into videos.", logoUrl: "https://placehold.co/128x128.png", link: "https://lumen5.com/", tags: ["Freemium", "Social Media", "Blog to Video", "Content Marketing"], category: "Video Editing" },
+    { id: "t57", name: "Animoto", description: "Video creation tool with AI-driven templates. Easy drag-and-drop interface for creating slideshows and marketing videos.", logoUrl: "https://placehold.co/128x128.png", link: "https://animoto.com/", tags: ["Freemium", "Templates", "Slideshows", "Marketing", "User-Friendly"], category: "Video Editing" },
+    { id: "t58", name: "Kapwing", description: "Online video editor with AI tools for content creation. Offers features like Smart Cut, auto-subtitling, and meme generation.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.kapwing.com/", tags: ["Freemium", "Online Editor", "Memes", "Subtitles", "Smart Cut"], category: "Video Editing" },
+    { id: "t59", name: "InVideo", description: "AI-powered video editor for creating promotional videos. Provides a vast library of templates and stock media.", logoUrl: "https://placehold.co/128x128.png", link: "https://invideo.io/", tags: ["Freemium", "Promotional", "Templates", "Stock Media", "Marketing"], category: "Video Editing" },
+    { id: "t60", name: "Clipchamp", description: "Microsoft's video editor with AI features. Offers timeline editing, templates, and stock assets.", logoUrl: "https://placehold.co/128x128.png", link: "https://www.clipchamp.com/", tags: ["Freemium", "Microsoft", "Windows", "Timeline Editing", "Templates"], category: "Video Editing" },
   ];
   return mockTools.find(tool => tool.id === id) || null;
 }
@@ -176,8 +188,8 @@ export async function generateStaticParams() {
     "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12",
     "t13", "t14", "t15", "t16", "t17", "t18", "t19", "t20", "t21", "t22", "t23", "t24",
     "t25", "t26", "t27", "t28", "t29", "t30", "t31", "t32", "t33", "t34", "t35", "t36",
-    "t37", "t38", "t39", "t40", "t41", "t42", "t43", "t44", "t45", "t46", "t47", "t48"
+    "t37", "t38", "t39", "t40", "t41", "t42", "t43", "t44", "t45", "t46", "t47", "t48",
+    "t49", "t50", "t51", "t52", "t53", "t54", "t55", "t56", "t57", "t58", "t59", "t60"
   ]; 
   return mockToolIds.map((id) => ({ id }));
 }
-
