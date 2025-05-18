@@ -28,7 +28,7 @@ export default function HomePage() {
       try {
         const response = await fetch('/api/tools');
         if (!response.ok) {
-          throw new Error(`Failed to fetch tools: ${response.statusText}`);
+          throw new Error(`Failed to fetch tools: ${response.status} ${response.statusText}`);
         }
         const data: Tool[] = await response.json();
         setTools(data);
@@ -167,3 +167,4 @@ export default function HomePage() {
     </>
   );
 }
+
