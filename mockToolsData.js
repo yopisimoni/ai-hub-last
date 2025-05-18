@@ -1,0 +1,30 @@
+
+const mockTools = [
+  { id: "t1", name: "Notion AI", description: "AI assistant integrated with Notion for productivity.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.notion.so/product/ai", tags: ["Free Trial", "Productivity"], category: "Productivity" },
+  { id: "t2", name: "ChatGPT", description: "Conversational AI by OpenAI.", logoUrl: "https://placehold.co/64x64.png", link: "https://chat.openai.com", tags: ["Free", "Conversational"], category: "Chatbot" },
+  { id: "t3", name: "DALL·E", description: "Image generation tool by OpenAI.", logoUrl: "https://placehold.co/64x64.png", link: "https://openai.com/dall-e", tags: ["Image", "Creative"], category: "Image Generator" },
+  { id: "t4", name: "Grammarly", description: "AI-powered writing assistant.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.grammarly.com", tags: ["Writing", "Grammar"], category: "Writing Assistant" },
+  { id: "t5", name: "Copy.ai", description: "AI writing tool for marketing copy.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.copy.ai", tags: ["Marketing", "Writing"], category: "Writing Assistant" },
+  { id: "t6", name: "Jasper", description: "AI content creation for businesses.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.jasper.ai", tags: ["Paid", "Content"], category: "Writing Assistant" },
+  { id: "t7", name: "Synthesia", description: "Create AI-generated videos from text.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.synthesia.io", tags: ["Video", "Avatar"], category: "Video Generator" },
+  { id: "t8", name: "Lumen5", description: "Turn blog posts into engaging videos.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.lumen5.com", tags: ["Video", "Content"], category: "Video Generator" },
+  { id: "t9", name: "Runway", description: "Creative tools for video editing and AI.", logoUrl: "https://placehold.co/64x64.png", link: "https://runwayml.com", tags: ["Video", "Editing"], category: "Video Generator" },
+  { id: "t10", name: "Midjourney", description: "AI tool to create high-quality art.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.midjourney.com", tags: ["Art", "Image"], category: "Image Generator" },
+  { id: "t11", name: "Stable Diffusion", description: "Open-source image generation model.", logoUrl: "https://placehold.co/64x64.png", link: "https://stability.ai", tags: ["Free", "Open Source"], category: "Image Generator" },
+  { id: "t12", name: "Descript", description: "Audio/video editing with AI.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.descript.com", tags: ["Audio", "Video"], category: "Audio & Video" },
+  { id: "t13", name: "Murph", description: "AI voice generator and editor.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.murf.ai", tags: ["Voice", "Audio"], category: "Audio & Video" },
+  { id: "t14", name: "Speechify", description: "Text-to-speech tool with natural voices.", logoUrl: "https://placehold.co/64x64.png", link: "https://speechify.com", tags: ["TTS", "Accessibility"], category: "Audio & Video" },
+  { id: "t15", name: "Fireflies.ai", description: "AI meeting assistant for transcribing meetings.", logoUrl: "https://placehold.co/64x64.png", link: "https://fireflies.ai", tags: ["Meetings", "Transcription"], category: "Productivity" },
+  { id: "t16", name: "Fathom", description: "Free AI meeting assistant for Zoom.", logoUrl: "https://placehold.co/64x64.png", link: "https://fathom.video", tags: ["Zoom", "Meetings"], category: "Productivity" },
+  { id: "t17", name: "Otter.ai", description: "Transcribe meetings in real-time.", logoUrl: "https://placehold.co/64x64.png", link: "https://otter.ai", tags: ["Transcription", "Meetings"], category: "Productivity" },
+  { id: "t18", name: "Tome", description: "Create presentations with AI.", logoUrl: "https://placehold.co/64x64.png", link: "https://tome.app", tags: ["Presentations", "Design"], category: "Productivity" },
+  { id: "t19", name: "Beautiful.ai", description: "AI-powered presentation maker.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.beautiful.ai", tags: ["Slides", "Design"], category: "Productivity" },
+  { id: "t20", name: "Decktopus", description: "Create pitch decks fast with AI.", logoUrl: "https://placehold.co/64x64.png", link: "https://www.decktopus.com", tags: ["Decks", "Startup"], category: "Productivity" },
+  { id: "t21", name: "Pictory", description: "Create short videos from long content.", logoUrl: "https://placehold.co/64x64.png", link: "https://pictory.ai", tags: ["Video", "Summarization"], category: "Video Generator" },
+  { id: "t22", name: "Looka", description: "AI-powered logo maker.", logoUrl: "https://placehold.co/64x64.png", link: "https://looka.com", tags: ["Design", "Branding"], category: "Design" },
+  { id: "t23", name: "LogoAI", description: "Automated logo design tool.", logoUrl: "https://placehold.co/64x64.png", link: "https://logoai.com", tags: ["Logo", "Design"], category: "Design" },
+  { id: "t24", name: "Brandmark", description: "AI tool for branding and logo design.", logoUrl: "https://placehold.co/64x64.png", link: "https://brandmark.io", tags: ["Branding", "Logo"], category: "Design" },
+  { id: "t25", name: "GitHub Copilot", description: "AI-powered code completion tool for developers.", logoUrl: "https://placehold.co/64x64.png", link: "https://github.com/features/copilot", tags: ["Paid", "Code Completion", "IDE Integration"], category: "Code Assistant" },
+];
+
+module.exports = mockTools;
