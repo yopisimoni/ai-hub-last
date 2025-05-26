@@ -28,15 +28,19 @@ export default function HomePage() {
       try {
         const response = await fetch('/api/tools');
         if (!response.ok) {
-          throw new Error(`Failed to fetch tools: ${response.status} ${response.statusText}`);
+          // Construct a more detailed error message including status
+          throw new Error(`Failed to fetch tools: ${response.status}${response.statusText ? ` ${response.statusText}` : ''}`);
         }
         const data: Tool[] = await response.json();
         setTools(data);
       } catch (error) {
         console.error("Error fetching tools:", error);
+        const description = error instanceof Error && error.message
+          ? `${error.message}. This often indicates a server-side issue. Please check your server logs for 'CRITICAL_ERROR' or 'API_ERROR' messages from the /api/tools endpoint.`
+          : "Could not load tools from the database. Please check server logs or try again later.";
         toast({
-          title: "Error",
-          description: "Could not load tools from the database. Please try again later.",
+          title: "Error Loading Tools",
+          description: description,
           variant: "destructive",
         });
         setTools([]); // Set to empty array on error
