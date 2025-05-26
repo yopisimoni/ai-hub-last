@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
             <CardTitle className="text-3xl font-bold text-foreground">Privacy Policy</CardTitle>
           </CardHeader>
           <CardContent className="p-6 sm:p-8 prose prose-sm sm:prose-base max-w-none text-muted-foreground leading-relaxed">
-            <p>Your privacy is important to us. It is AI Tool Finder's policy to respect your privacy regarding any information we may collect from you across our website, [Your Website URL], and other sites we own and operate.</p>
+            <p>Your privacy is important to us. It is AI Tool Finder's policy to respect your privacy regarding any information we may collect from you across our website, [aitoolfinder.com], and other sites we own and operate.</p>
 
             <h2 className="text-xl font-semibold text-foreground mt-6 mb-3">1. Information we collect</h2>
             <p>Log data: When you visit our website, our servers may automatically log the standard data provided by your web browser. It may include your computer’s Internet Protocol (IP) address, your browser type and version, the pages you visit, the time and date of your visit, the time spent on each page, and other details.</p>

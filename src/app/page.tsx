@@ -52,13 +52,11 @@ export default function HomePage() {
 
   const filteredTools = useMemo(() => {
     let sortedTools = [...tools];
-    // Sorting logic (mock for now for 'newest' and 'popular' as these fields aren't in the base Tool type)
+
     if (sortBy === "newest") {
-      // Placeholder: sortedTools.sort((a, b) => (b.dateAdded || 0) - (a.dateAdded || 0));
-      // For now, it will effectively be by name as dateAdded is not present
+      sortedTools.sort((a, b) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
     } else if (sortBy === "popular") {
-      // Placeholder: sortedTools.sort((a, b) => (b.upvotes || 0) - (a.upvotes || 0));
-      // For now, it will effectively be by name as upvotes is not present
+      sortedTools.sort((a, b) => b.upvotes - a.upvotes);
     } else { // name
       sortedTools.sort((a, b) => a.name.localeCompare(b.name));
     }

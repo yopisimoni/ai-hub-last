@@ -7,6 +7,8 @@ export interface Tool {
   link: string; // URL to the tool's website
   tags: string[];
   category: string;
+  upvotes: number;
+  dateAdded: string;
 }
 
 export const categories = [
