@@ -1,172 +1,291 @@
-
-"use client"; 
-
-import { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ToolCard from "@/components/tools/ToolCard";
-import CategoryFilter from "@/components/tools/CategoryFilter";
-import type { Tool, Category } from "@/types";
-import { Input } from "@/components/ui/input";
-import { Search as SearchIcon, ThumbsUp, Zap, BarChart3 } from "lucide-react"; // Renamed Search to SearchIcon
-import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"; 
-import { toast } from "@/hooks/use-toast";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  ArrowRight,
+  BadgeDollarSign,
+  BookOpenCheck,
+  BriefcaseBusiness,
+  CheckCircle2,
+  FileText,
+  Globe2,
+  Layers3,
+  Megaphone,
+  PenTool,
+  Sparkles,
+  Video,
+  WandSparkles,
+} from "lucide-react";
+
+const goals = [
+  {
+    title: "Create content",
+    description: "Turn ideas, notes, or source material into useful content faster.",
+    icon: PenTool,
+    examples: ["30 social posts", "Blog to multi-platform content", "Product descriptions"],
+  },
+  {
+    title: "Grow social media",
+    description: "Plan, repurpose, schedule, and improve content without adding busywork.",
+    icon: Megaphone,
+    examples: ["Content calendar", "Repurposing workflow", "Short-form scripts"],
+  },
+  {
+    title: "Build a website",
+    description: "Use AI for planning, copy, code, SEO, QA, and launch preparation.",
+    icon: Globe2,
+    examples: ["Landing page", "SEO brief", "Website audit"],
+  },
+  {
+    title: "Run a small business",
+    description: "Automate repetitive work while keeping important decisions human.",
+    icon: BriefcaseBusiness,
+    examples: ["Email workflows", "Customer support", "Document processing"],
+  },
+  {
+    title: "Study & learn",
+    description: "Use AI to explain, summarize, practice, and organize knowledge.",
+    icon: BookOpenCheck,
+    examples: ["Study plan", "Research workflow", "Practice questions"],
+  },
+  {
+    title: "Make money online",
+    description: "Use AI as leverage for useful services, products, and creator workflows.",
+    icon: BadgeDollarSign,
+    examples: ["Freelance workflow", "Digital product", "Creator toolkit"],
+  },
+];
+
+const featuredWorkflows = [
+  {
+    title: "Turn one idea into 30 social posts",
+    description:
+      "A repeatable system for creating a month of platform-specific content from one strong source idea.",
+    icon: Layers3,
+    steps: ["Define the source idea", "Generate content angles", "Adapt by platform"],
+  },
+  {
+    title: "Turn a PDF into useful content",
+    description:
+      "Extract the important ideas, create a summary, and repurpose the material into posts or guides.",
+    icon: FileText,
+    steps: ["Extract key points", "Create a content map", "Repurpose safely"],
+  },
+  {
+    title: "Create faceless short-form videos",
+    description:
+      "Plan the hook, script, visuals, voiceover, and publishing workflow without appearing on camera.",
+    icon: Video,
+    steps: ["Find the angle", "Write the script", "Assemble the video"],
+  },
+];
+
+const principles = [
+  "Start with the user's goal, not a giant tool directory.",
+  "Recommend fewer tools with a clear reason for each one.",
+  "Show the workflow before asking for a click or purchase.",
+  "Disclose affiliate relationships clearly when monetization is added.",
+];
 
 export default function HomePage() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<Category | "All">("All");
-  const [tools, setTools] = useState<Tool[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [sortBy, setSortBy] = useState<"name" | "newest" | "popular">("name");
-
-
- useEffect(() => {
-    const fetchTools = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch('/api/tools');
-        if (!response.ok) {
-          // Construct a more detailed error message including status
-          throw new Error(`Failed to fetch tools: ${response.status}${response.statusText ? ` ${response.statusText}` : ''}`);
-        }
-        const data: Tool[] = await response.json();
-        setTools(data);
-      } catch (error) {
-        console.error("Error fetching tools:", error);
-        const description = error instanceof Error && error.message
-          ? `${error.message}. This often indicates a server-side issue. Please check your server logs for 'CRITICAL_ERROR' or 'API_ERROR' messages from the /api/tools endpoint.`
-          : "Could not load tools from the database. Please check server logs or try again later.";
-        toast({
-          title: "Error Loading Tools",
-          description: description,
-          variant: "destructive",
-        });
-        setTools([]); // Set to empty array on error
-      }
-      setIsLoading(false);
-    };
-    fetchTools();
-  }, []);
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value.toLowerCase());
-  };
-
-  const filteredTools = useMemo(() => {
-    let sortedTools = [...tools];
-
-    if (sortBy === "newest") {
-      sortedTools.sort((a, b) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
-    } else if (sortBy === "popular") {
-      sortedTools.sort((a, b) => b.upvotes - a.upvotes);
-    } else { // name
-      sortedTools.sort((a, b) => a.name.localeCompare(b.name));
-    }
-    
-    return sortedTools.filter(tool => {
-      const matchesCategory = selectedCategory === "All" || tool.category === selectedCategory;
-      const matchesSearch = tool.name.toLowerCase().includes(searchTerm) ||
-                            tool.description.toLowerCase().includes(searchTerm) ||
-                            (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(searchTerm)));
-      return matchesCategory && matchesSearch;
-    });
-  }, [tools, searchTerm, selectedCategory, sortBy]);
-  
   return (
     <>
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center mb-10 pt-4">
-          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Discover the Best AI Tools
-          </h1>
-          <p className="mt-5 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
-            Explore a curated collection of cutting-edge AI tools to boost your productivity, creativity, and innovation.
-          </p>
-        </div>
-        
-        <div className="mb-6 max-w-xl mx-auto">
-            <div className="relative">
-              <SearchIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
-              <Input
-                type="search"
-                placeholder="Search tools by name, description, or tags..."
-                className="w-full pl-12 pr-4 py-3 text-base rounded-xl border-2 focus:border-primary shadow-sm h-12"
-                onChange={handleSearchChange}
-                value={searchTerm}
-                aria-label="Search tools"
-              />
+      <main className="flex-grow">
+        <section className="border-b">
+          <div className="container mx-auto px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm">
+                <Sparkles className="h-4 w-4 text-primary" />
+                Problem first. Tools second.
+              </div>
+
+              <h1 className="text-4xl font-black tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                What do you want to
+                <span className="text-primary"> accomplish with AI?</span>
+              </h1>
+
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+                AI Hub gives you a practical workflow for the job, explains each step,
+                and points you to the right tools only when they are actually useful.
+              </p>
+
+              <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+                <Link href="#workflows">
+                  <Button size="lg" className="w-full gap-2 sm:w-auto">
+                    Explore workflows
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/tools">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                    Browse AI tools
+                  </Button>
+                </Link>
+              </div>
+
+              <p className="mt-5 text-xs text-muted-foreground">
+                No paid placement determines the workflow order in this MVP.
+              </p>
             </div>
-        </div>
-
-        <CategoryFilter selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
-        
-        <div className="flex justify-between items-center mb-6 px-1">
-          <p className="text-sm text-muted-foreground">
-            {isLoading ? 'Loading tools...' : `${filteredTools.length} tool${filteredTools.length !== 1 ? 's' : ''} found`}
-          </p>
-          <div className="flex gap-2">
-            <Button variant={sortBy === "name" ? "default" : "outline"} size="sm" onClick={() => setSortBy("name")} className="rounded-md text-xs px-3 py-1 h-8">
-              <BarChart3 className="mr-1.5 h-3.5 w-3.5"/> Name
-            </Button>
-            <Button variant={sortBy === "newest" ? "default" : "outline"} size="sm" onClick={() => setSortBy("newest")} className="rounded-md text-xs px-3 py-1 h-8">
-              <Zap className="mr-1.5 h-3.5 w-3.5"/> Newest
-            </Button>
-            <Button variant={sortBy === "popular" ? "default" : "outline"} size="sm" onClick={() => setSortBy("popular")} className="rounded-md text-xs px-3 py-1 h-8">
-              <ThumbsUp className="mr-1.5 h-3.5 w-3.5"/> Popular
-            </Button>
           </div>
-        </div>
+        </section>
 
-
-        {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8">
-            {Array.from({ length: 12 }).map((_, index) => ( 
-              <Card key={index} className="flex flex-col h-full rounded-xl">
-                <CardHeader className="p-4">
-                  <div className="flex items-start gap-4">
-                    <Skeleton className="h-14 w-14 rounded-lg" />
-                    <div className="flex-1 space-y-2 pt-1">
-                      <Skeleton className="h-5 w-3/4" />
-                      <Skeleton className="h-4 w-1/2" />
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-4 pt-0 flex-grow space-y-1.5">
-                  <Skeleton className="h-4 w-full" />
-                  <Skeleton className="h-4 w-5/6" />
-                </CardContent>
-                <CardFooter className="p-4 border-t">
-                  <Skeleton className="h-9 w-full" />
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        ) : filteredTools.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8">
-            {filteredTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <SearchIcon className="mx-auto h-16 w-16 text-muted-foreground/70" strokeWidth={1.5}/>
-            <h3 className="mt-4 text-xl font-semibold text-foreground">No Tools Found</h3>
-            <p className="mt-1.5 text-md text-muted-foreground">
-              Try adjusting your search or filters. If you're expecting data from the database, ensure it's loaded and the API is working.
+        <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+              Choose your goal
             </p>
-            { (searchTerm || selectedCategory !== "All") && 
-              <Button variant="outline" className="mt-6" onClick={() => { setSearchTerm(""); setSelectedCategory("All"); }}>
-                Clear Filters & Search
-              </Button>
-            }
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              Start from the result you need
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              The same AI tool can be excellent for one job and wrong for another. We organize
+              the experience around outcomes instead of hype.
+            </p>
           </div>
-        )}
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {goals.map((goal) => {
+              const Icon = goal.icon;
+              return (
+                <Card key={goal.title} className="group h-full transition-shadow hover:shadow-md">
+                  <CardHeader>
+                    <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <CardTitle className="text-xl">{goal.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="leading-6 text-muted-foreground">{goal.description}</p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {goal.examples.map((example) => (
+                        <span
+                          key={example}
+                          className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+                        >
+                          {example}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="workflows" className="border-y bg-card">
+          <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Featured workflows
+                </p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                  Useful before monetized
+                </h2>
+                <p className="mt-4 text-muted-foreground">
+                  These are the first workflows we are building. Each one will become a practical
+                  step-by-step page with tool choices, alternatives, templates, and measurable outcomes.
+                </p>
+              </div>
+              <Link href="/tools">
+                <Button variant="outline" className="gap-2">
+                  View tool directory
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {featuredWorkflows.map((workflow) => {
+                const Icon = workflow.icon;
+                return (
+                  <Card key={workflow.title} className="h-full">
+                    <CardHeader>
+                      <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <CardTitle className="text-xl">{workflow.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="leading-6 text-muted-foreground">{workflow.description}</p>
+                      <div className="mt-6 space-y-3">
+                        {workflow.steps.map((step, index) => (
+                          <div key={step} className="flex items-center gap-3 text-sm">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-semibold">
+                              {index + 1}
+                            </span>
+                            <span>{step}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section id="how-it-works" className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <WandSparkles className="h-6 w-6" />
+              </div>
+              <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">
+                How AI Hub should work
+              </h2>
+              <p className="mt-4 leading-7 text-muted-foreground">
+                A visitor should be able to arrive with a real problem and leave with a clear
+                sequence of actions—not another overwhelming list of software.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {principles.map((principle) => (
+                <div
+                  key={principle}
+                  className="flex gap-3 rounded-xl border bg-card p-4 shadow-sm"
+                >
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <p className="text-sm leading-6">{principle}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t bg-primary text-primary-foreground">
+          <div className="container mx-auto px-4 py-14 sm:px-6 lg:px-8">
+            <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] opacity-80">
+                  MVP direction
+                </p>
+                <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
+                  Build workflows people return to.
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-6 opacity-85">
+                  Then layer in email capture, trusted recommendations, affiliate revenue,
+                  and our own digital workflow products.
+                </p>
+              </div>
+              <Link href="#workflows">
+                <Button variant="secondary" size="lg" className="gap-2">
+                  See the first workflows
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
   );
 }
-
