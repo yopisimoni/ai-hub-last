@@ -37,7 +37,7 @@ The priority is usefulness first. Affiliate links and paid products should only 
 
 ## Current phase
 
-**Phase 1: GitHub MVP / pre-deployment**
+**Phase 1: GitHub MVP / pre-deployment — BUILD VERIFIED**
 
 - [x] Reposition away from a generic AI tools directory
 - [x] Redesign homepage around user goals
@@ -52,7 +52,8 @@ The priority is usefulness first. Affiliate links and paid products should only 
 - [ ] Add email capture / lead magnet
 - [ ] Add affiliate disclosure and link management
 - [ ] Add structured data / schema
-- [ ] Run production build and full route QA
+- [x] Run production build and typecheck in GitHub Actions
+- [ ] Complete full browser/mobile route QA
 - [ ] Validate user behavior before production deployment
 - [ ] Connect `next.myfastoffer4u.com`
 
