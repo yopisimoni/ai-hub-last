@@ -37,7 +37,7 @@ The priority is usefulness first. Affiliate links and paid products should only 
 
 ## Current phase
 
-**Phase 1: GitHub MVP / pre-deployment — BUILD VERIFIED**
+**Phase 1: GitHub MVP / pre-deployment — BUILD VERIFIED — PAUSED FOR LATER**
 
 - [x] Reposition away from a generic AI tools directory
 - [x] Redesign homepage around user goals
@@ -56,6 +56,20 @@ The priority is usefulness first. Affiliate links and paid products should only 
 - [ ] Complete full browser/mobile route QA
 - [ ] Validate user behavior before production deployment
 - [ ] Connect `next.myfastoffer4u.com`
+
+## Pause / resume point
+
+Paused on **2026-09-15** after analytics instrumentation was added and verified.
+
+When work resumes, continue with:
+
+1. email capture / lead magnet;
+2. conversion-path QA;
+3. structured data and affiliate disclosure;
+4. browser/mobile route QA;
+5. NEXT-specific GA4 property setup;
+6. production deployment preparation;
+7. connect `next.myfastoffer4u.com` only after the launch gates pass.
 
 ## Analytics
 
@@ -76,6 +90,15 @@ The current MVP records:
 - `workflow_view`
 
 If the environment variable is absent, GA4 is not loaded.
+
+## Verification
+
+The analytics changes were verified through GitHub Actions using the existing **NEXT MVP Verify** workflow:
+
+- dependency install: passed;
+- TypeScript typecheck: passed;
+- production build: passed;
+- verification PR #3 merged.
 
 ## Stack
 
