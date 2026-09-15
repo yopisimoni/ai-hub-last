@@ -14,6 +14,8 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <Link href="/workflows" className="transition-colors hover:text-primary">Workflows</Link>
+            <Link href="/tools" className="transition-colors hover:text-primary">AI tools</Link>
             <Link href="/blog" className="transition-colors hover:text-primary">Guides</Link>
             <Link href="/terms" className="transition-colors hover:text-primary">Terms</Link>
             <Link href="/privacy" className="transition-colors hover:text-primary">Privacy</Link>
