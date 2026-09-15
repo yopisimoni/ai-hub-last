@@ -47,7 +47,7 @@ The priority is usefulness first. Affiliate links and paid products should only 
 - [x] Create dedicated workflow library
 - [x] Cover all six initial user-goal categories
 - [x] Add per-workflow metadata
-- [ ] Connect featured homepage cards directly to workflow pages
+- [x] Connect featured homepage cards directly to workflow pages
 - [ ] Add analytics events
 - [ ] Add email capture / lead magnet
 - [ ] Add affiliate disclosure and link management
