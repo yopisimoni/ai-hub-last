@@ -21,16 +21,16 @@ export default function Navbar() {
         </Link>
 
         <nav className="flex items-center gap-1 sm:gap-2">
-          <Link href="/#workflows">
+          <Link href="/workflows">
             <Button variant="ghost" size="sm">Workflows</Button>
           </Link>
-          <Link href="/#how-it-works" className="hidden sm:block">
-            <Button variant="ghost" size="sm">How it works</Button>
+          <Link href="/tools" className="hidden sm:block">
+            <Button variant="ghost" size="sm">AI tools</Button>
           </Link>
           <Link href="/blog" className="hidden md:block">
             <Button variant="ghost" size="sm">Guides</Button>
           </Link>
-          <Link href="/#workflows">
+          <Link href="/workflows">
             <Button size="sm" className="gap-1.5">
               Find a workflow
               <ArrowRight className="h-4 w-4" />
