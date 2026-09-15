@@ -1,6 +1,5 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import Navbar from "@/components/layout/Navbar";
+import Navbar, { AnalyticsEvent, TrackedLink } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { workflows } from "@/lib/workflows";
 import { ArrowRight, Clock3, Target } from "lucide-react";
@@ -17,6 +16,7 @@ export default function WorkflowsPage() {
   return (
     <>
       <Navbar />
+      <AnalyticsEvent eventName="workflow_library_view" />
       <main className="flex-grow">
         <section className="border-b bg-card">
           <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
@@ -59,12 +59,22 @@ export default function WorkflowsPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Link href={`/workflows/${workflow.slug}`} className="w-full">
+                  <TrackedLink
+                    href={`/workflows/${workflow.slug}`}
+                    className="w-full"
+                    eventName="workflow_open"
+                    eventParams={{
+                      source: "workflow_library",
+                      workflow_slug: workflow.slug,
+                      workflow_title: workflow.title,
+                      workflow_category: workflow.category,
+                    }}
+                  >
                     <Button className="w-full gap-2">
                       Open workflow
                       <ArrowRight className="h-4 w-4" />
                     </Button>
-                  </Link>
+                  </TrackedLink>
                 </CardFooter>
               </Card>
             ))}
