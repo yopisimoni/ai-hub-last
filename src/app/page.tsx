@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Navbar from "@/components/layout/Navbar";
+import Navbar, { TrackedLink } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -114,17 +113,25 @@ export default function HomePage() {
               </p>
 
               <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-                <Link href="/workflows">
+                <TrackedLink
+                  href="/workflows"
+                  eventName="cta_click"
+                  eventParams={{ location: "home_hero", target: "workflows" }}
+                >
                   <Button size="lg" className="w-full gap-2 sm:w-auto">
                     Explore workflows
                     <ArrowRight className="h-4 w-4" />
                   </Button>
-                </Link>
-                <Link href="/tools">
+                </TrackedLink>
+                <TrackedLink
+                  href="/tools"
+                  eventName="cta_click"
+                  eventParams={{ location: "home_hero", target: "tools" }}
+                >
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     Browse AI tools
                   </Button>
-                </Link>
+                </TrackedLink>
               </div>
 
               <p className="mt-5 text-xs text-muted-foreground">
@@ -193,41 +200,55 @@ export default function HomePage() {
                   step-by-step page with tool choices, alternatives, templates, and measurable outcomes.
                 </p>
               </div>
-              <Link href="/workflows">
+              <TrackedLink
+                href="/workflows"
+                eventName="cta_click"
+                eventParams={{ location: "home_featured", target: "all_workflows" }}
+              >
                 <Button variant="outline" className="gap-2">
                   View all workflows
                   <ArrowRight className="h-4 w-4" />
                 </Button>
-              </Link>
+              </TrackedLink>
             </div>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {featuredWorkflows.map((workflow) => {
                 const Icon = workflow.icon;
                 return (
-                  <Link href={`/workflows/${workflow.slug}`} key={workflow.title} className="block h-full">
-                  <Card className="h-full transition-shadow hover:shadow-md">
-                    <CardHeader>
-                      <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <CardTitle className="text-xl">{workflow.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="leading-6 text-muted-foreground">{workflow.description}</p>
-                      <div className="mt-6 space-y-3">
-                        {workflow.steps.map((step, index) => (
-                          <div key={step} className="flex items-center gap-3 text-sm">
-                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-semibold">
-                              {index + 1}
-                            </span>
-                            <span>{step}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+                  <TrackedLink
+                    href={`/workflows/${workflow.slug}`}
+                    key={workflow.title}
+                    className="block h-full"
+                    eventName="workflow_open"
+                    eventParams={{
+                      source: "home_featured",
+                      workflow_slug: workflow.slug,
+                      workflow_title: workflow.title,
+                    }}
+                  >
+                    <Card className="h-full transition-shadow hover:shadow-md">
+                      <CardHeader>
+                        <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <CardTitle className="text-xl">{workflow.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="leading-6 text-muted-foreground">{workflow.description}</p>
+                        <div className="mt-6 space-y-3">
+                          {workflow.steps.map((step, index) => (
+                            <div key={step} className="flex items-center gap-3 text-sm">
+                              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-semibold">
+                                {index + 1}
+                              </span>
+                              <span>{step}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TrackedLink>
                 );
               })}
             </div>
@@ -278,12 +299,16 @@ export default function HomePage() {
                   and our own digital workflow products.
                 </p>
               </div>
-              <Link href="#workflows">
+              <TrackedLink
+                href="#workflows"
+                eventName="cta_click"
+                eventParams={{ location: "home_bottom", target: "featured_workflows" }}
+              >
                 <Button variant="secondary" size="lg" className="gap-2">
                   See the first workflows
                   <ArrowRight className="h-4 w-4" />
                 </Button>
-              </Link>
+              </TrackedLink>
             </div>
           </div>
         </section>
