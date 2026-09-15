@@ -1,6 +1,6 @@
 # AI Hub — AI Problem Solver
 
-AI Hub is being rebuilt as a problem-first AI workflow platform.
+AI Hub is a problem-first AI workflow platform being prepared for the future `next.myfastoffer4u.com` subdomain.
 
 ## Core idea
 
@@ -8,38 +8,53 @@ Instead of asking visitors to browse hundreds of AI tools, AI Hub starts with a 
 
 > **What are you trying to accomplish?**
 
-The product then shows a practical workflow, the best-fit AI tools, templates, and next actions.
+The product then shows a practical workflow, the best-fit AI tools, alternatives, a completion checklist, and next actions.
 
-## MVP direction
+## Canonical repository
 
-Initial use cases:
+This repository — `yopisimoni/ai-hub-last` — is the source of truth for the NEXT project.
 
-- Create content with AI
+Older AI Hub repositories are historical prototypes and should not be used for current implementation work.
+
+## Current workflow library
+
+The MVP now covers six problem areas:
+
+- Create content
 - Grow social media
 - Build a website
 - Run a small business
 - Study and learn
 - Make money online
 
+The workflow layer is intentionally independent from the legacy AI-tool database so the core product stays usable while tool-directory infrastructure is being cleaned up.
+
 ## Product model
 
-Traffic sources → useful workflow pages → email capture → trusted tool recommendations → affiliate revenue and digital products.
+Traffic → useful workflow pages → email capture → trusted tool recommendations → affiliate revenue and digital products.
 
-The priority is usefulness first. Affiliate links and paid products should only appear where they genuinely fit the workflow.
+The priority is usefulness first. Affiliate links and paid products should only appear where they genuinely fit the workflow and should always be disclosed.
 
 ## Current phase
 
-**Phase 1: Rebuild the public experience**
+**Phase 1: GitHub MVP / pre-deployment**
 
 - [x] Reposition away from a generic AI tools directory
 - [x] Redesign homepage around user goals
-- [ ] Build workflow library
-- [ ] Add individual workflow pages
+- [x] Preserve the AI tool directory under `/tools`
+- [x] Create reusable workflow data model
+- [x] Create reusable workflow detail route
+- [x] Create dedicated workflow library
+- [x] Cover all six initial user-goal categories
+- [x] Add per-workflow metadata
+- [x] Connect featured homepage cards directly to workflow pages
 - [ ] Add analytics events
 - [ ] Add email capture / lead magnet
 - [ ] Add affiliate disclosure and link management
-- [ ] Add SEO pages and structured data
-- [ ] Validate before connecting a production subdomain
+- [ ] Add structured data / schema
+- [ ] Run production build and full route QA
+- [ ] Validate user behavior before production deployment
+- [ ] Connect `next.myfastoffer4u.com`
 
 ## Stack
 
@@ -47,7 +62,11 @@ The priority is usefulness first. Affiliate links and paid products should only 
 - TypeScript
 - Tailwind CSS
 - React
-- Existing Firebase/Genkit code retained for review before deciding what remains in the MVP
+- Existing Firebase/Genkit code retained for review before deciding what remains in the production MVP
+
+## Deployment rule
+
+Do **not** point `next.myfastoffer4u.com` at this application until the MVP passes build, route, content, analytics, and conversion QA.
 
 ---
 

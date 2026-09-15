@@ -9,13 +9,11 @@ import {
   BookOpenCheck,
   BriefcaseBusiness,
   CheckCircle2,
-  FileText,
   Globe2,
   Layers3,
   Megaphone,
   PenTool,
   Sparkles,
-  Video,
   WandSparkles,
 } from "lucide-react";
 
@@ -60,6 +58,7 @@ const goals = [
 
 const featuredWorkflows = [
   {
+    slug: "turn-one-idea-into-30-social-posts",
     title: "Turn one idea into 30 social posts",
     description:
       "A repeatable system for creating a month of platform-specific content from one strong source idea.",
@@ -67,18 +66,20 @@ const featuredWorkflows = [
     steps: ["Define the source idea", "Generate content angles", "Adapt by platform"],
   },
   {
-    title: "Turn a PDF into useful content",
+    slug: "build-a-website-with-ai",
+    title: "Plan and build a small website with AI",
     description:
-      "Extract the important ideas, create a summary, and repurpose the material into posts or guides.",
-    icon: FileText,
-    steps: ["Extract key points", "Create a content map", "Repurpose safely"],
+      "Turn a business or project idea into a focused brief, site structure, copy, implementation plan, and launch QA.",
+    icon: Globe2,
+    steps: ["Write the brief", "Plan pages and copy", "Run launch QA"],
   },
   {
-    title: "Create faceless short-form videos",
+    slug: "start-a-freelance-service-with-ai",
+    title: "Turn one skill into a freelance service",
     description:
-      "Plan the hook, script, visuals, voiceover, and publishing workflow without appearing on camera.",
-    icon: Video,
-    steps: ["Find the angle", "Write the script", "Assemble the video"],
+      "Package a real skill into a focused offer, create proof, find prospects, and standardize delivery.",
+    icon: BriefcaseBusiness,
+    steps: ["Choose the problem", "Create proof", "Build the delivery system"],
   },
 ];
 
@@ -113,7 +114,7 @@ export default function HomePage() {
               </p>
 
               <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-                <Link href="#workflows">
+                <Link href="/workflows">
                   <Button size="lg" className="w-full gap-2 sm:w-auto">
                     Explore workflows
                     <ArrowRight className="h-4 w-4" />
@@ -192,9 +193,9 @@ export default function HomePage() {
                   step-by-step page with tool choices, alternatives, templates, and measurable outcomes.
                 </p>
               </div>
-              <Link href="/tools">
+              <Link href="/workflows">
                 <Button variant="outline" className="gap-2">
-                  View tool directory
+                  View all workflows
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
@@ -204,7 +205,8 @@ export default function HomePage() {
               {featuredWorkflows.map((workflow) => {
                 const Icon = workflow.icon;
                 return (
-                  <Card key={workflow.title} className="h-full">
+                  <Link href={`/workflows/${workflow.slug}`} key={workflow.title} className="block h-full">
+                  <Card className="h-full transition-shadow hover:shadow-md">
                     <CardHeader>
                       <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                         <Icon className="h-5 w-5" />
@@ -225,6 +227,7 @@ export default function HomePage() {
                       </div>
                     </CardContent>
                   </Card>
+                </Link>
                 );
               })}
             </div>

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
@@ -9,6 +10,24 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function generateStaticParams() {
   return workflows.map((workflow) => ({ slug: workflow.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const workflow = getWorkflow(slug);
+
+  if (!workflow) {
+    return { title: "Workflow not found" };
+  }
+
+  return {
+    title: workflow.title,
+    description: workflow.summary,
+  };
 }
 
 export default async function WorkflowPage({
@@ -28,11 +47,11 @@ export default async function WorkflowPage({
         <section className="border-b bg-card">
           <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
             <Link
-              href="/#workflows"
+              href="/workflows"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back to workflows
+              Back to workflow library
             </Link>
 
             <div className="mt-8 max-w-4xl">
@@ -137,7 +156,10 @@ export default async function WorkflowPage({
                 ))}
               </div>
 
-              <Link href="/tools" className="mt-6 block">
+              <Link href="/workflows" className="mt-6 block">
+                <Button className="w-full">Browse more workflows</Button>
+              </Link>
+              <Link href="/tools" className="mt-3 block">
                 <Button variant="outline" className="w-full">
                   Browse the tool directory
                 </Button>
