@@ -9,13 +9,11 @@ import {
   BookOpenCheck,
   BriefcaseBusiness,
   CheckCircle2,
-  FileText,
   Globe2,
   Layers3,
   Megaphone,
   PenTool,
   Sparkles,
-  Video,
   WandSparkles,
 } from "lucide-react";
 
