@@ -48,7 +48,7 @@ The priority is usefulness first. Affiliate links and paid products should only 
 - [x] Cover all six initial user-goal categories
 - [x] Add per-workflow metadata
 - [x] Connect featured homepage cards directly to workflow pages
-- [ ] Add analytics events
+- [x] Add analytics events
 - [ ] Add email capture / lead magnet
 - [ ] Add affiliate disclosure and link management
 - [ ] Add structured data / schema
@@ -56,6 +56,26 @@ The priority is usefulness first. Affiliate links and paid products should only 
 - [ ] Complete full browser/mobile route QA
 - [ ] Validate user behavior before production deployment
 - [ ] Connect `next.myfastoffer4u.com`
+
+## Analytics
+
+Analytics is intentionally project-scoped and does not reuse an ID from another product.
+
+Set this environment variable for NEXT when its own GA4 property is ready:
+
+```text
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+The current MVP records:
+
+- `navigation_click`
+- `cta_click`
+- `workflow_library_view`
+- `workflow_open`
+- `workflow_view`
+
+If the environment variable is absent, GA4 is not loaded.
 
 ## Stack
 
